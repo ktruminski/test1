@@ -14,7 +14,7 @@
             background-color: #e0f7fa; /* Light blue background */
         }
         header {
-            background: #00796b; /* Green background */
+            background: #81c784; /* Light green background */
             color: white;
             padding: 10px 20px;
             text-align: center;
@@ -22,21 +22,26 @@
         nav {
             display: flex;
             justify-content: center;
-            background: #004d40; /* Dark green background */
+            background: #4caf50; /* Green background */
+            padding: 10px 0;
         }
         nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
         nav a:hover {
-            background: #00695c; /* Slightly lighter green on hover */
+            background: #66bb6a; /* Slightly lighter green on hover */
         }
         .hero {
             text-align: center;
-            background: url('https://via.placeholder.com/1920x500') no-repeat center center/cover;
+            background: url('project/zdjecia/int/hero-background.jpg') no-repeat center center/cover; /* Background image */
             color: white;
             padding: 100px 20px;
+            position: relative;
         }
         .hero h1 {
             font-size: 3em;
@@ -48,16 +53,33 @@
             padding: 20px;
         }
         .section {
-            margin: 20px 0;
+            margin: 40px 0;
+            display: none; /* Hide all sections by default */
+        }
+        .section.active {
+            display: block; /* Show the active section */
         }
         .section h2 {
-            color: #004d40; /* Dark green color for section headings */
+            color: #388e3c; /* Dark green color for section headings */
+            margin-bottom: 20px;
+        }
+        .section p, .section ul {
+            margin-bottom: 20px;
         }
         footer {
             text-align: center;
             padding: 10px;
-            background: #00796b; /* Green background */
+            background: #81c784; /* Light green background */
             color: white;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -65,17 +87,16 @@
     <header>
         <h1>Energia Przyszłości</h1>
         <p>Odnawialne źródła energii dla lepszego jutra</p>
-        
     </header>
 
     <nav>
-        <a href="#o-nas">O nas</a>
-        <a href="#rodzaje-energii">Rodzaje energii</a>
-        <a href="#korzysci">Korzyści</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="#o-nas" onclick="showSection('o-nas')">O nas</a>
+        <a href="#rodzaje-energii" onclick="showSection('rodzaje-energii')">Rodzaje energii</a>
+        <a href="#korzysci" onclick="showSection('korzysci')">Korzyści</a>
+        <a href="#kontakt" onclick="showSection('kontakt')">Kontakt</a>
     </nav>
 
-    <div class="hero">
+    <div class="hero" id="hero">
         <h1>Witamy w przyszłości energii</h1>
     </div>
 
@@ -84,6 +105,27 @@
             <h2>O nas</h2>
             <p>Firma Energia Przyszłości została założona w 2000 roku z misją promowania i wdrażania odnawialnych źródeł energii. Od tego czasu, staliśmy się liderem w branży, oferując innowacyjne rozwiązania i technologie, które pomagają zmniejszyć emisję dwutlenku węgla i chronić naszą planetę.</p>
             <p>Nasza firma rozwija się dynamicznie, wprowadzając na rynek nowe produkty i usługi, które odpowiadają na rosnące zapotrzebowanie na czystą energię. Współpracujemy z wieloma partnerami na całym świecie, aby dostarczać naszym klientom najlepsze rozwiązania energetyczne.</p>
+            <p>Nasze główne obszary działalności obejmują:</p>
+            <ul>
+                <li><strong>Energia słoneczna:</strong> Instalacja paneli fotowoltaicznych i systemów solarnych.</li>
+                <li><strong>Energia wiatrowa:</strong> Budowa i utrzymanie farm wiatrowych.</li>
+                <li><strong>Energia wodna:</strong> Rozwój i zarządzanie elektrowniami wodnymi.</li>
+                <li><strong>Energia geotermalna:</strong> Wykorzystanie ciepła z wnętrza Ziemi do produkcji energii.</li>
+                <li><strong>Biomasa:</strong> Przetwarzanie materiałów organicznych na energię.</li>
+            </ul>
+            <p>Nasza misja to nie tylko dostarczanie czystej energii, ale także edukacja i wsparcie społeczności w zakresie zrównoważonego rozwoju. Organizujemy warsztaty, seminaria i kampanie informacyjne, aby zwiększyć świadomość na temat korzyści płynących z odnawialnych źródeł energii.</p>
+            <p>Jesteśmy dumni z naszych osiągnięć i dążymy do ciągłego doskonalenia naszych usług. Nasz zespół składa się z doświadczonych specjalistów, którzy są zaangażowani w realizację naszej misji i wartości.</p>
+            <p>W 2020 roku, z okazji 20-lecia naszej działalności, uruchomiliśmy program "Zielona Przyszłość", który ma na celu wsparcie lokalnych społeczności w przechodzeniu na odnawialne źródła energii. Program obejmuje dotacje na instalację paneli słonecznych, edukację na temat efektywności energetycznej oraz wsparcie techniczne dla nowych projektów.</p>
+            <p>Nasze wartości to:</p>
+            <ul>
+                <li><strong>Innowacyjność:</strong> Stale poszukujemy nowych technologii i rozwiązań, które mogą poprawić efektywność energetyczną i zmniejszyć wpływ na środowisko.</li>
+                <li><strong>Zrównoważony rozwój:</strong> Dążymy do równowagi między potrzebami dzisiejszych pokoleń a możliwościami przyszłych pokoleń.</li>
+                <li><strong>Współpraca:</strong> Wierzymy, że współpraca z partnerami, klientami i społecznościami jest kluczem do osiągnięcia naszych celów.</li>
+                <li><strong>Odpowiedzialność:</strong> Jesteśmy odpowiedzialni za nasze działania i ich wpływ na środowisko oraz społeczność.</li>
+            </ul>
+            <div class="image-container">
+                <img src="project/zdjecia/int/oze.jpg" alt="O nas">
+            </div>
         </div>
         <div class="section" id="rodzaje-energii">
             <h2>Rodzaje energii</h2>
@@ -95,19 +137,79 @@
                 <li><strong>Energia geotermalna:</strong> Wykorzystuje ciepło pochodzące z wnętrza Ziemi do produkcji energii elektrycznej lub cieplnej.</li>
                 <li><strong>Biomasa:</strong> Wykorzystuje materiały organiczne, takie jak drewno, odpady rolnicze i inne, do produkcji energii poprzez spalanie lub inne procesy.</li>
             </ul>
+            <div class="image-container">
+                <img src="project/zdjecia/int/solar.jpg" alt="Energia słoneczna">
+                <img src="project/zdjecia/int/wind.jpg" alt="Energia wiatrowa">
+                <img src="project/zdjecia/int/hydro.jpg" alt="Energia wodna">
+                <img src="project/zdjecia/int/geothermal.jpg" alt="Energia geotermalna">
+                <img src="project/zdjecia/int/biomass.jpg" alt="Biomasa">
+            </div>
         </div>
-        <!-- Add more sections as needed -->
-    </div>
-
-    <div class="contact-info">
-        <h2>Kontakt</h2>
-        <p>Email: kontakt@energiaprzyszlosci.pl</p>
-        <p>Telefon: +48 123 456 789</p>
-        <p>Adres: ul. Przykładowa 1, 00-001 Warszawa, Polska</p>
+        <div class="section" id="korzysci">
+            <h2>Korzyści</h2>
+            <p>Odnawialne źródła energii przynoszą wiele korzyści, w tym zmniejszenie emisji dwutlenku węgla, poprawę jakości powietrza, tworzenie miejsc pracy i zmniejszenie zależności od paliw kopalnych.</p>
+            <p><strong>1. Ochrona środowiska:</strong></p>
+            <ul>
+                <li><strong>Redukcja emisji gazów cieplarnianych:</strong> Energia odnawialna, taka jak energia słoneczna, wiatrowa czy geotermalna, nie emituje dwutlenku węgla ani innych szkodliwych substancji.</li>
+                <li><strong>Zmniejszenie zanieczyszczenia powietrza:</strong> W przeciwieństwie do spalania paliw kopalnych, odnawialne źródła energii nie powodują emisji toksycznych związków, co pozytywnie wpływa na jakość powietrza.</li>
+                <li><strong>Ochrona zasobów naturalnych:</strong> Energia odnawialna pozwala ograniczyć eksploatację zasobów takich jak węgiel czy ropa naftowa.</li>
+            </ul>
+            <p><strong>2. Ekonomiczne korzyści:</strong></p>
+            <ul>
+                <li><strong>Stabilność cen energii:</strong> Koszty energii odnawialnej są mniej podatne na zmienność rynkową niż paliwa kopalne, co przekłada się na bardziej stabilne ceny dla konsumentów.</li>
+                <li><strong>Tworzenie nowych miejsc pracy:</strong> Rozwój technologii odnawialnych tworzy nowe sektory w gospodarce, np. w zakresie projektowania, instalacji i utrzymania infrastruktury.</li>
+                <li><strong>Uniezależnienie od importu energii:</strong> Lokalna produkcja energii odnawialnej zmniejsza zależność od zagranicznych dostawców surowców energetycznych.</li>
+            </ul>
+            <p><strong>3. Korzyści dla zdrowia publicznego:</strong></p>
+            <ul>
+                <li><strong>Mniejsze ryzyko chorób układu oddechowego:</strong> Ograniczenie emisji zanieczyszczeń skutkuje poprawą zdrowia ludności, zmniejszając liczbę zachorowań na astmę, alergie i inne choroby oddechowe.</li>
+                <li><strong>Czyste środowisko:</strong> Ograniczenie odpadów oraz zanieczyszczeń generowanych przez przemysł wydobywczy i energetyczny.</li>
+            </ul>
+            <p><strong>4. Zrównoważony rozwój:</strong></p>
+            <ul>
+                <li><strong>Długoterminowe zasoby energii:</strong> Odnawialne źródła energii, jak słońce, wiatr, woda czy biomasa, są praktycznie niewyczerpywalne w skali czasu życia planety.</li>
+                <li><strong>Zmniejszenie obciążenia dla przyszłych pokoleń:</strong> Przejście na odnawialne źródła energii pozwala minimalizować negatywny wpływ na klimat i zasoby naturalne, co przynosi korzyści dla przyszłych generacji.</li>
+            </ul>
+            <p><strong>5. Poprawa bezpieczeństwa energetycznego:</strong></p>
+            <ul>
+                <li><strong>Decentralizacja produkcji energii:</strong> Mniejsze systemy oparte na źródłach odnawialnych są bardziej odporne na awarie niż scentralizowane sieci oparte na paliwach kopalnych.</li>
+                <li><strong>Odporność na konflikty geopolityczne:</strong> Kraje inwestujące w odnawialne źródła energii mogą unikać uzależnienia od niestabilnych rynków surowców energetycznych.</li>
+            </ul>
+            <p>Przejście na odnawialne źródła energii jest nie tylko krokiem w stronę ochrony środowiska, ale także strategiczną decyzją ekonomiczną i społeczną, która może przynieść korzyści na wielu poziomach.</p>
+        </div>
+        <div class="section" id="kontakt">
+            <h2>Kontakt</h2>
+            <p>Email: kontakt@energiaprzyszlosci.pl</p>
+            <p>Telefon: +48 123 456 789</p>
+            <p>Adres: ul. Przykładowa 1, 00-001 Warszawa, Polska</p>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2023 Energia Przyszłości. Wszelkie prawa zastrzeżone.</p>
+        <p>&copy; 2025 Energia Przyszłości. Wszelkie prawa zastrzeżone.</p>
     </footer>
+
+    <script>
+        function showSection(id) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(id).classList.add('active');
+
+            // Hide the hero section
+            document.getElementById('hero').style.display = 'none';
+        }
+
+        // Show the initial section and hide the hero section after a delay
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('hero').style.display = 'none';
+            }, 3000); // Adjust the delay as needed
+        }
+    </script>
 </body>
 </html>
